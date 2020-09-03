@@ -1,4 +1,4 @@
-# 從這裡可以快速下載App喔～～
+# 從這裡可以快速下載App～～
 不用再進我的Repo翻囉
 ## 持續更新中
 ### iKanColleCommand Tweaked Version (繁體中文)
@@ -8,7 +8,7 @@
 
 [Release 2.5.1 IPA下載（相容性最佳化）](https://github.com/ming900518/KC2CHT/releases/download/Release2.5.1/1.0.TW.CHT-Release2.5.1-bigger.ipa)
 
-[官方網站（越獄用戶從這裡可以加入軟體源）](https://kc2tweaked.github.io/)
+[官方網站](https://kc2tweaked.github.io/)（越獄用戶從這裡可以加入軟體源，非越獄用戶也有AltStore專用安裝連結！）
 
 ### KCBrowser
 系統要求：iOS / iPadOS 13，macOS 10.15以上
