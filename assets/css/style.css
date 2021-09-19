@@ -30,7 +30,7 @@ a {
 }
 
 a:hover {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
     text-decoration: none;
     transition: all 0.5s ease-in-out;
 }
@@ -40,7 +40,7 @@ a:hover {
 }
 
 .color-a {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .color-d {
@@ -97,7 +97,7 @@ a:hover {
 }
 
 .overlay-mf {
-    background-color: rgb(75, 36, 133);
+    background-color: rgb(35, 65, 90);
 }
 
 .overlay-mf {
@@ -170,7 +170,7 @@ a:hover {
 .line-mf {
     width: 40px;
     height: 5px;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     margin: 0 auto;
 }
 
@@ -190,7 +190,7 @@ a:hover {
     content: '';
     position: absolute;
     height: 3px;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     width: 100px;
     bottom: -12px;
 }
@@ -235,12 +235,12 @@ a:hover {
     border-radius: 50%;
     line-height: 1.4;
     margin: 0 15px 0 0;
-    box-shadow: 0 0 0 3px rgb(111, 106, 204);
+    box-shadow: 0 0 0 3px rgb(45, 65, 85);
     transition: all 500ms ease;
 }
 
 .socials .ico-circle:hover {
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     color: #ffffff;
     box-shadow: 0 0 0 3px rgb(228, 227, 255);
     transition: all 500ms ease;
@@ -266,7 +266,7 @@ a:hover {
 }
 
 .list-ico span {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
     margin-right: 10px;
 }
 
@@ -281,7 +281,7 @@ a:hover {
     line-height: 1.55;
     margin: 0 auto;
     text-align: center;
-    box-shadow: 0 0 0 10px rgb(111, 106, 204);
+    box-shadow: 0 0 0 10px rgb(45, 65, 85);
     display: block;
 }
 
@@ -330,7 +330,7 @@ a:hover {
     position: fixed;
     width: 42px;
     height: 42px;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     opacity: .7;
     font-size: 1.6rem;
     line-height: 1.5;
@@ -350,7 +350,7 @@ a:hover {
 .back-to-top {
     position: fixed;
     display: none;
-    background: rgb(111, 106, 204);
+    background: rgb(45, 65, 85);
     color: #ffffff;
     width: 44px;
     height: 44px;
@@ -395,7 +395,7 @@ a:hover {
     top: calc(50% - 30px);
     left: calc(50% - 30px);
     border: 6px solid #f2f2f2;
-    border-top: 6px solid rgb(111, 106, 204);
+    border-top: 6px solid rgb(45, 65, 85);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -445,13 +445,13 @@ a:hover {
 }
 
 .button:hover {
-    background-color: rgb(20, 0, 85);
+    background-color: rgb(15, 30, 45);
     color: #ffffff;
     transition: all 500ms ease;
 }
 
 .button-a {
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     color: #ffffff;
     border-color: #ffffff;
 }
@@ -572,26 +572,26 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .nav-link {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .navbar-b.navbar-reduce .nav-link:before {
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
 }
 
 .navbar-b.navbar-reduce .nav-link:hover {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .navbar-b.navbar-reduce .show>.nav-link,
 .navbar-b.navbar-reduce .active>.nav-link,
 .navbar-b.navbar-reduce .nav-link.show,
 .navbar-b.navbar-reduce .nav-link.active {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .navbar-b.navbar-reduce .navbar-brand {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .navbar-b.navbar-reduce .navbar-toggler span {
@@ -622,13 +622,13 @@ a:hover {
 }
 
 .navbar-b .dropdown-menu .dropdown-item:hover {
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     color: #ffffff;
     transition: all 500ms ease;
 }
 
 .navbar-b .dropdown-menu .dropdown-item.active {
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
 }
 
 
@@ -757,7 +757,7 @@ a:hover {
 
 .intro-single .breadcrumb {
     background-color: transparent;
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .intro-single .breadcrumb .breadcrumb-item:before {
@@ -810,7 +810,7 @@ a:hover {
 
 .skill-mf .progress .progress-bar {
     height: .7rem;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
 }
 
 
@@ -828,7 +828,7 @@ a:hover {
 .service-box:hover .ico-circle {
     transition: all 500ms ease;
     color: #ffffff;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     box-shadow: 0 0 0 10px rgb(228, 227, 255);
 }
 
@@ -920,17 +920,17 @@ a:hover {
 }
 
 .work-content .w-more .w-ctegory {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .work-content .w-like {
     font-size: 2.5rem;
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
     float: right;
 }
 
 .work-content .w-like a {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .work-content .w-like .num-like {
@@ -975,7 +975,7 @@ a:hover {
 }
 
 .portfolio-details .portfolio-details-carousel .owl-dot.active {
-    background-color: rgb(111, 106, 204) !important;
+    background-color: rgb(45, 65, 85) !important;
 }
 
 .portfolio-details .portfolio-info {
@@ -1064,7 +1064,7 @@ a:hover {
 
 .testimonial-box .comit {
     font-size: 2rem;
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
     background-color: #ffffff;
     width: 52px;
     height: 52px;
@@ -1167,7 +1167,7 @@ a:hover {
 
 .php-email-form input::focus,
 .php-email-form textarea::focus {
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
 }
 
 .php-email-form input {
@@ -1180,7 +1180,7 @@ a:hover {
 }
 
 .php-email-form button[type="submit"] {
-    background: rgb(111, 106, 204);
+    background: rgb(45, 65, 85);
     border: 0;
     padding: 10px 24px;
     color: #ffffff;
@@ -1239,7 +1239,7 @@ a:hover {
     color: #ffffff;
     padding: 0 15px 5px;
     overflow: hidden;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     border-radius: 4px;
 }
 
@@ -1309,7 +1309,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul {
-    border-left: 4px solid rgb(111, 106, 204);
+    border-left: 4px solid rgb(45, 65, 85);
     margin-top: 1rem;
 }
 
@@ -1319,7 +1319,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul a {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .blog-wrapper .post-meta ul span {
@@ -1327,7 +1327,7 @@ a:hover {
 }
 
 .blog-wrapper .blockquote {
-    border-left: 4px solid rgb(111, 106, 204);
+    border-left: 4px solid rgb(45, 65, 85);
     padding: 18px;
     font-style: italic;
 }
@@ -1366,7 +1366,7 @@ a:hover {
 }
 
 .box-comments .list-comments a {
-    color: rgb(111, 106, 204);
+    color: rgb(45, 65, 85);
 }
 
 .box-comments .list-comments span {
@@ -1384,7 +1384,7 @@ a:hover {
 .widget-sidebar .sidebar-title {
     font-size: 1.6rem;
     font-weight: 600;
-    border-left: 5px solid rgb(111, 106, 204);
+    border-left: 5px solid rgb(45, 65, 85);
     padding-left: 15px;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -1401,7 +1401,7 @@ a:hover {
     width: 10px;
     height: 1px;
     left: 0;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     top: 20px;
 }
 
@@ -1412,8 +1412,8 @@ a:hover {
 }
 
 .sidebar-search .btn-search {
-    background-color: rgb(111, 106, 204);
-    border-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
+    border-color: rgb(45, 65, 85);
     border-radius: 0;
     padding-left: 20px;
     padding-right: 20px;
@@ -1421,7 +1421,7 @@ a:hover {
 
 .widget-tags ul li {
     display: inline-block;
-    background-color: rgb(111, 106, 204);
+    background-color: rgb(45, 65, 85);
     padding: .2rem .6rem;
     margin-bottom: .5rem;
     border-radius: 15px;
@@ -1440,7 +1440,7 @@ footer {
     text-align: center;
     color: #ffffff;
     padding: 25px 0;
-    background: rgb(55, 0, 138);
+    background: rgb(22, 39, 56);
 }
 
 footer .copyright {
