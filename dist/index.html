@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>張仲閔 Ming Chang</title>
+    <meta name="description" content="這是Ming Chang的個人網頁，介紹有關我自己的事物，歡迎蒞臨！">
+    <meta name="theme-color" content="#162738">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" as="style">
+    <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" as="style">
+    <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet" as="style">
+    <link href="assets/vendor/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet" as="style">
+    <link href="assets/css/style.css" rel="stylesheet" as="style">
+    <link rel="icon" href="assets/favicon.ico">
+    <script type="module">import init from '/homepage-c7df0e86d19d7058.js';init('/homepage-c7df0e86d19d7058_bg.wasm');</script>
+    
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EH6818FDWT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-EH6818FDWT');
+    </script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/counterup/jquery.counterup.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+<link rel="preload" href="/homepage-c7df0e86d19d7058_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/homepage-c7df0e86d19d7058.js"></head>
+
+<body id="page-top">
+
+
+
+<script>(function () {
+    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    var url = protocol + '//' + window.location.host + '/_trunk/ws';
+    var poll_interval = 5000;
+    var reload_upon_connect = () => {
+        window.setTimeout(
+            () => {
+                // when we successfully reconnect, we'll force a
+                // reload (since we presumably lost connection to
+                // trunk due to it being killed, so it will have
+                // rebuilt on restart)
+                var ws = new WebSocket(url);
+                ws.onopen = () => window.location.reload();
+                ws.onclose = reload_upon_connect;
+            },
+            poll_interval);
+    };
+
+    var ws = new WebSocket(url);
+    ws.onmessage = (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.reload) {
+            window.location.reload();
+        }
+    };
+    ws.onclose = reload_upon_connect;
+})()
+</script></body></html>
