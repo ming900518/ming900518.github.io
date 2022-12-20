@@ -36,5 +36,5 @@ pub fn testimonials() -> Html {
                 </div>
             </div>
         </div>
-    }
+    };
 }

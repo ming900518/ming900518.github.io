@@ -79,5 +79,5 @@ pub fn project() -> Html {
                 </div>
             </div>
         </section>
-    }
+    };
 }

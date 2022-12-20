@@ -80,5 +80,5 @@ pub fn about() -> Html {
                 </div>
             </div>
         </section>
-    }
+    };
 }

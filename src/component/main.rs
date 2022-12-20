@@ -1,13 +1,7 @@
-use yew::prelude::*;
 use crate::component::section::{
-    about::*,
-    work::*,
-    showcase::*,
-    project::*,
-    testimonials::*,
-    like::*,
-    contact::*
+    about::*, contact::*, like::*, project::*, showcase::*, testimonials::*, work::*,
 };
+use yew::prelude::*;
 
 #[function_component(Main)]
 pub fn main() -> Html {
@@ -21,5 +15,5 @@ pub fn main() -> Html {
             <Like />
             <Contact />
         </main>
-    }
+    };
 }

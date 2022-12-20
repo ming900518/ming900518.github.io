@@ -1,5 +1,5 @@
 pub mod section;
 
-pub mod navbar;
-pub mod main;
 pub mod footer;
+pub mod main;
+pub mod navbar;

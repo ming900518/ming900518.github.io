@@ -17,5 +17,5 @@ pub fn footer() -> Html {
                 </div>
             </div>
         </footer>
-    }
+    };
 }

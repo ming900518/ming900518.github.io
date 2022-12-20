@@ -54,5 +54,5 @@ pub fn show_case() -> Html {
                 </div>
             </div>
         </div>
-    }
+    };
 }

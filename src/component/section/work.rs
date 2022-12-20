@@ -58,5 +58,5 @@ pub fn work() -> Html {
                 </div>
             </div>
         </section>
-    }
+    };
 }

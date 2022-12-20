@@ -73,5 +73,5 @@ pub fn like() -> Html {
                 </div>
             </div>
         </section>
-    }
+    };
 }

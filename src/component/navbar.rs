@@ -29,5 +29,5 @@ pub fn nav_bar() -> Html {
             </div>
         </div>
     </nav>
-    }
+    };
 }

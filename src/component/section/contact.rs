@@ -1,13 +1,16 @@
 use gloo_console::error;
-use web_sys::{Location, window};
+use web_sys::{window, Location};
 use yew::prelude::*;
 
 #[function_component(Contact)]
 pub fn contact() -> Html {
-
     fn link_click(link: &str) {
-        let document = window().expect("Window not found.").document().expect("Document not found.");
-        Location::set_href(&document.location().unwrap(), link).unwrap_or_else(|_| error!("Can't set_href."));
+        let document = window()
+            .expect("Window not found.")
+            .document()
+            .expect("Document not found.");
+        Location::set_href(&document.location().unwrap(), link)
+            .unwrap_or_else(|_| error!("Can't set_href."));
     }
 
     return html! {
@@ -63,5 +66,5 @@ pub fn contact() -> Html {
                 </div>
             </div>
         </section>
-    }
+    };
 }
