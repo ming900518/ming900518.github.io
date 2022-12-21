@@ -1,11 +1,10 @@
-use component::{footer::*, main::*, navbar::*};
+use component::{blog::content::*, footer::*, main::*, navbar::*};
 use yew::prelude::*;
 use yew_router::prelude::*;
 mod component;
 
 #[derive(Clone, Routable, PartialEq)]
 enum Route {
-    #[not_found]
     #[at("/")]
     Home,
     #[at("/blog")]
@@ -15,13 +14,9 @@ enum Route {
 #[function_component(App)]
 fn app() -> Html {
     return html! {
-        <>
-            <BrowserRouter>
-                <Switch<Route> render={switch} />
-            </BrowserRouter>
-            <Footer />
-            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        </>
+        <BrowserRouter>
+            <Switch<Route> render={switch} />
+        </BrowserRouter>
     };
 }
 
@@ -43,12 +38,39 @@ fn switch(routes: Route) -> Html {
                     </div>
                 </div>
                 <Main />
+                <Footer />
                 </>
             }
         }
         Route::Blog => {
             html! {
-                <p>{"Blog"}</p>
+                <>
+                <BlogNavBar />
+                <div class="intro intro-single route bg-image" style="background-image: url(assets/img/bg.webp)">
+                    <div class="overlay-mf"></div>
+                    <div class="intro-content display-table">
+                        <div class="table-cell">
+                            <div class="container">
+                                <h2 class="intro-title mb-4">{"文章標題"}</h2>
+                                <ol class="breadcrumb d-flex justify-content-center">
+                                    <li class="breadcrumb-item">
+                                        <a href="index.html">{"首頁"}</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">{"文章標題"}</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <main id="main">
+                    <section class="portfolio-details">
+                        <div class="container">
+                            <Content />
+                        </div>
+                    </section>
+                </main>
+                <Footer />
+                </>
             }
         }
     };

@@ -1,3 +1,4 @@
+pub mod blog;
 pub mod section;
 
 pub mod footer;

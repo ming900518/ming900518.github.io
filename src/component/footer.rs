@@ -8,7 +8,7 @@ pub fn footer() -> Html {
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="copyright-box">
-                            <p class="copyright">{"Copyright &copy; 2021 "}<strong>{"Ming Chang"}</strong>{". All Rights Reserved."}</p>
+                            <p class="copyright">{"Copyright © 2021 "}<strong>{"Ming Chang"}</strong>{". All Rights Reserved."}</p>
                             <div class="credits">
                                 {"Designed by "}<a href="https://bootstrapmade.com/">{"BootstrapMade"}</a>
                             </div>

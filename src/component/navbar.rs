@@ -1,3 +1,4 @@
+use crate::{Link, Route};
 use yew::prelude::*;
 
 #[function_component(NavBar)]
@@ -24,6 +25,23 @@ pub fn nav_bar() -> Html {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll" href="#contact">{"聯繫我"}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    };
+}
+
+#[function_component(BlogNavBar)]
+pub fn blog_nav_bar() -> Html {
+    return html! {
+        <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+        <div class="container">
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <Link<Route> to={Route::Home} classes={"nav-link js-scroll"}>{"回到主頁"}</Link<Route>>
                     </li>
                 </ul>
             </div>

@@ -18,7 +18,7 @@ pub fn project() -> Html {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="work-box">
-                            <a href="work.html">
+                            <a href="">
                                 <div class="work-img" style="text-align: center;">
                                     <img src="./assets/img/logokc2cht.webp" alt="" class="img-fluid"
                                         style="height: 300px;"/>
