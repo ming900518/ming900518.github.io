@@ -41,9 +41,8 @@ pub fn blog_nav_bar() -> Html {
             <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <Link<Route> to={Route::Home} classes={"nav-link js-scroll"}>{"回到主頁"}</Link<Route>>
+                        <a class="nav-link js-scroll" href="../">{"回到主頁"}</a>
                     </li>
-                </ul>
             </div>
         </div>
     </nav>

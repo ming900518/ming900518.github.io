@@ -8,7 +8,9 @@ enum Route {
     #[at("/")]
     Home,
     #[at("/blog")]
-    Blog,
+    BlogList,
+    #[at("/blog/:id")]
+    BlogArticle,
 }
 
 #[function_component(App)]
@@ -39,41 +41,33 @@ fn switch(routes: Route) -> Html {
                 </div>
                 <Main />
                 <Footer />
+                <MainScript />
                 </>
             }
         }
-        Route::Blog => {
+        Route::BlogArticle => {
             html! {
                 <>
                 <BlogNavBar />
-                <div class="intro intro-single route bg-image" style="background-image: url(assets/img/bg.webp)">
-                    <div class="overlay-mf"></div>
-                    <div class="intro-content display-table">
-                        <div class="table-cell">
-                            <div class="container">
-                                <h2 class="intro-title mb-4">{"文章標題"}</h2>
-                                <ol class="breadcrumb d-flex justify-content-center">
-                                    <li class="breadcrumb-item">
-                                        <a href="index.html">{"首頁"}</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">{"文章標題"}</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <main id="main">
-                    <section class="portfolio-details">
-                        <div class="container">
-                            <Content />
-                        </div>
-                    </section>
-                </main>
+                <Content />
                 <Footer />
+                <MainScript />
                 </>
             }
         }
+        Route::BlogList => {
+            html!{}
+        }
     };
+}
+
+#[function_component(MainScript)]
+fn main_script() -> Html {
+    return html! {
+        <>
+        <script src="assets/js/main.js"></script>
+        </>
+    }
 }
 
 fn main() {
