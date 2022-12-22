@@ -7,8 +7,6 @@ mod component;
 enum Route {
     #[at("/")]
     Home,
-    #[at("/blog")]
-    BlogList,
     #[at("/blog/:id")]
     BlogArticle,
 }
@@ -28,7 +26,7 @@ fn switch(routes: Route) -> Html {
             html! {
                 <>
                 <NavBar />
-                <div id="home" class="intro route bg-image" style="background-image: url(assets/img/bg.webp)">
+                <div id="home" class="intro route bg-image" style="background-image: url(/assets/img/bg.webp)">
                     <div class="overlay-itro"></div>
                     <div class="intro-content display-table">
                         <div class="table-cell">
@@ -55,9 +53,6 @@ fn switch(routes: Route) -> Html {
                 </>
             }
         }
-        Route::BlogList => {
-            html!{}
-        }
     };
 }
 
@@ -65,9 +60,9 @@ fn switch(routes: Route) -> Html {
 fn main_script() -> Html {
     return html! {
         <>
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
         </>
-    }
+    };
 }
 
 fn main() {

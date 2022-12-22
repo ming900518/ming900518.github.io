@@ -1,6 +1,7 @@
 use crate::component::section::{
-    about::*, contact::*, like::*, project::*, showcase::*, testimonials::*, work::*,
+    about::*, contact::*, showcase::*, testimonials::*, work::*,
 };
+use crate::component::blog::articles::*;
 use yew::prelude::*;
 
 #[function_component(Main)]
@@ -8,11 +9,10 @@ pub fn main() -> Html {
     return html! {
         <main id="main">
             <About />
-            <Work />
             <Showcase />
-            <Project />
+            <Work />
             <Testimonials />
-            <Like />
+            <Articles />
             <Contact />
         </main>
     };

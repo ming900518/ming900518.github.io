@@ -72,6 +72,9 @@ pub fn about() -> Html {
                                         <p class="lead">
                                             {"日前則專注於Rust開發，正在運用Tokio/Axum框架製作過微服務模組，也同時使用NEAR鏈開發智能合約。"}
                                         </p>
+                                        <p class="lead">
+                                            <strong>{"本頁採用Rust與Yew框架編譯WebAssembly實作功能"}</strong>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

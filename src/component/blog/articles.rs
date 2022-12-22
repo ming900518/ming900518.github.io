@@ -1,15 +1,15 @@
 use yew::prelude::*;
 
-#[function_component(Project)]
-pub fn project() -> Html {
+#[function_component(Articles)]
+pub fn articles() -> Html {
     return html! {
-        <section id="project" class="portfolio-mf sect-pt4 route">
+        <section id="articles" class="portfolio-mf sect-pt4 route">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="title-box text-center">
                             <h3 class="title-a">
-                                {"作品"}
+                                {"文章、雜談 & 筆記"}
                             </h3>
                             <div class="line-mf"></div>
                         </div>
@@ -19,16 +19,12 @@ pub fn project() -> Html {
                     <div class="col-md-4">
                         <div class="work-box">
                             <a href="">
-                                <div class="work-img" style="text-align: center;">
-                                    <img src="./assets/img/logokc2cht.webp" alt="" class="img-fluid"
-                                        style="height: 300px;"/>
-                                </div>
                                 <div class="work-content">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h2 class="w-title">{"iKanColleCommand Tweaked Version"}</h2>
+                                            <h2 class="w-title">{"Title Placeholder"}</h2>
                                             <div class="w-more">
-                                                <span class="w-ctegory">{"iOS程式"}</span>{" / "}<span class="w-date">{"Jul 7, 2019"}</span>
+                                                <span class="w-ctegory">{"文章"}</span>{" / "}<span class="w-date">{"Date Placeholder"}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -38,17 +34,29 @@ pub fn project() -> Html {
                     </div>
                     <div class="col-md-4">
                         <div class="work-box">
-                            <a href="https://mingchang.tw/articles/">
-                                <div class="work-img" style="text-align: center;">
-                                    <img src="./assets/img/article.webp" alt="" class="img-fluid"
-                                        style="height: 300px;"/>
-                                </div>
+                            <a href="">
                                 <div class="work-content">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h2 class="w-title">{"程式開發 / 系統架設記錄文章集"}</h2>
+                                            <h2 class="w-title">{"Title Placeholder"}</h2>
                                             <div class="w-more">
-                                                <span class="w-ctegory">{"文章集（持續更新）"}</span>{" / "}<span class="w-date">{"Mar 10, 2021"}</span>
+                                                <span class="w-ctegory">{"雜談"}</span>{" / "}<span class="w-date">{"Date Placeholder"}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="work-box">
+                            <a href="https://mingchang.tw/NTPU-Introduction_to_Criminal_Procedure_Law/">
+                                <div class="work-content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h2 class="w-title">{"北大刑事訴訟法 上課筆記"}</h2>
+                                            <div class="w-more">
+                                                <span class="w-ctegory">{"筆記"}</span>{" / "}<span class="w-date">{"Dec 12, 2022"}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -59,10 +67,6 @@ pub fn project() -> Html {
                     <div class="col-md-4">
                         <div class="work-box">
                             <a href="https://mingchang.tw/CompTIA-Security-Plus-Study-Notes/">
-                                <div class="work-img" style="text-align: center;">
-                                    <img src="./assets/img/logosecurityplus.svg" alt="" class="img-fluid"
-                                        style="height: 300px;"/>
-                                </div>
                                 <div class="work-content">
                                     <div class="row">
                                         <div class="col-sm-12">
