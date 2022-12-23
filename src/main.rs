@@ -8,7 +8,7 @@ enum Route {
     #[at("/")]
     Home,
     #[at("/blog/:id")]
-    BlogArticle,
+    BlogArticle { id: String },
 }
 
 #[function_component(App)]
@@ -43,11 +43,11 @@ fn switch(routes: Route) -> Html {
                 </>
             }
         }
-        Route::BlogArticle => {
+        Route::BlogArticle { id } => {
             html! {
                 <>
                 <BlogNavBar />
-                <Content />
+                <Content { id }/>
                 <Footer />
                 <MainScript />
                 </>

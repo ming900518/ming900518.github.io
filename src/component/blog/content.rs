@@ -6,6 +6,11 @@ use comrak::{
 use gloo_net::http::Request;
 use yew::prelude::*;
 
+#[derive(Clone, PartialEq, Properties)]
+pub struct Props {
+    pub id: String
+}
+
 #[derive(Clone, PartialEq, Default)]
 struct BlogArticleContent {
     title: String,
@@ -13,16 +18,18 @@ struct BlogArticleContent {
 }
 
 #[function_component(Content)]
-pub fn content() -> Html {
+pub fn content(props: &Props) -> Html {
     let blog_article_content = use_state(|| BlogArticleContent::default());
     {
         let blog_article_content = blog_article_content.clone();
+        let id = props.id.clone();
         use_effect_with_deps(
             move |_| {
                 let blog_article_content = blog_article_content.clone();
+                let id = id.clone();
                 wasm_bindgen_futures::spawn_local(async move {
                     let fetched_data =
-                        Request::get("https://raw.githubusercontent.com/ming900518/articles/main/Spring-Boot-Fetching-Data-Response.md")
+                        Request::get(&*format!("https://raw.githubusercontent.com/ming900518/articles/main/{}", id))
                             .send()
                             .await
                             .unwrap()
@@ -30,7 +37,7 @@ pub fn content() -> Html {
                             .await
                             .unwrap();
                     let collected_data = fetched_data.as_str().lines().collect::<Vec<&str>>();
-                    let splited_data = collected_data.split_first().unwrap_or((&"", &[""]));
+                    let splited_data = collected_data.split_first().unwrap_or((&"載入失敗", &["請回上一頁"]));
                     blog_article_content.set(BlogArticleContent {
                         title: splited_data.0[2..].parse().unwrap(),
                         content: markdown_to_html_with_plugins(
@@ -49,6 +56,7 @@ pub fn content() -> Html {
                                 },
                                 render: ComrakRenderOptions {
                                     github_pre_lang: true,
+                                    unsafe_: true,
                                     ..ComrakRenderOptions::default()
                                 },
                             },
@@ -82,7 +90,7 @@ pub fn content() -> Html {
         </div>
         <main id="main">
             <section class="portfolio-details">
-                <div class="container">
+                <div style="max-width: fit-content; padding: 4em">
                     {Html::from_html_unchecked(blog_article_content.content.clone().into())}
                 </div>
             </section>
