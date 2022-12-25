@@ -90,12 +90,6 @@ a:hover {
     background-position: center center;
 }
 
-@media (max-width: 1024px) {
-    .bg-image {
-        background-attachment: scroll;
-    }
-}
-
 .overlay-mf {
     background-color: rgb(35, 65, 90);
 }
@@ -154,7 +148,13 @@ a:hover {
 /*--/ Title A /--*/
 
 .title-box {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.title-box img{
+    max-width: 100% !important;
+    object-fit: cover;
 }
 
 .title-a {
