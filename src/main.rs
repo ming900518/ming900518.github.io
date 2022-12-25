@@ -46,7 +46,6 @@ fn switch(routes: Route) -> Html {
         Route::BlogArticle { id } => {
             html! {
                 <>
-                <BlogNavBar />
                 <Content { id }/>
                 <Footer />
                 <MainScript />

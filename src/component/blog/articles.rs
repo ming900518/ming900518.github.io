@@ -38,7 +38,7 @@ pub fn articles() -> Html {
     let blocks = &article_data.iter().map(|data| {
         let url = data.url.as_str().to_string();
         return html! {
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="work-box">
                     <a href={format!("/blog/{}",url)}>
                         <div class="work-content">
@@ -58,7 +58,7 @@ pub fn articles() -> Html {
     }).collect::<Html>();
 
     return html! {
-        <section id="articles" class="portfolio-mf sect-pt4 route">
+        <section id="articles" class="portfolio-mf sect-pt4 route footer-paralax" style="padding-bottom: 4em;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -72,7 +72,7 @@ pub fn articles() -> Html {
                 </div>
                 <div class="row" style="display: flex; flex-wrap: wrap;">
                     { blocks.clone() }
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="work-box">
                             <a href="https://mingchang.tw/NTPU-Introduction_to_Criminal_Procedure_Law/">
                                 <div class="work-content">
@@ -88,7 +88,7 @@ pub fn articles() -> Html {
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="work-box">
                             <a href="https://mingchang.tw/CompTIA-Security-Plus-Study-Notes/">
                                 <div class="work-content">
