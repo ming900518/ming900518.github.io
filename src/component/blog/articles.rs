@@ -16,23 +16,26 @@ pub fn articles() -> Html {
     let article_data = use_state(|| vec![]);
     {
         let article_data = article_data.clone();
-        use_effect_with_deps(move |_| {
-            let article_data = article_data.clone();
-            wasm_bindgen_futures::spawn_local(async move {
-                let mut fetched_data: Vec<ArticleData> = Request::get(
-                    "https://raw.githubusercontent.com/ming900518/articles/main/article.json",
-                )
+        use_effect_with_deps(
+            move |_| {
+                let article_data = article_data.clone();
+                wasm_bindgen_futures::spawn_local(async move {
+                    let mut fetched_data: Vec<ArticleData> = Request::get(
+                        "https://raw.githubusercontent.com/ming900518/articles/main/article.json",
+                    )
                     .send()
                     .await
                     .unwrap()
                     .json()
                     .await
                     .unwrap();
-                fetched_data.sort_by_key(|x| x.date.clone());
-                fetched_data.reverse();
-                article_data.set(fetched_data)
-            })
-        }, ())
+                    fetched_data.sort_by_key(|x| x.date.clone());
+                    fetched_data.reverse();
+                    article_data.set(fetched_data)
+                })
+            },
+            (),
+        )
     }
 
     let blocks = &article_data.iter().map(|data| {
