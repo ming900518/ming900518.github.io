@@ -1,5 +1,5 @@
 use component::{blog::content::*, footer::*, main::*, navbar::*};
-use yew::prelude::*;
+use yew::{prelude::*, ServerRenderer};
 use yew_router::prelude::*;
 mod component;
 
@@ -65,5 +65,5 @@ fn main_script() -> Html {
 }
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    ServerRenderer::<App>::new().render().await;
 }

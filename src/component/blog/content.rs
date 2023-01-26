@@ -81,6 +81,7 @@ pub fn content(props: &Props) -> Html {
                                         codefence_syntax_highlighter: Some(&SyntectAdapter::new(
                                             "base16-ocean.dark",
                                         )),
+                                        heading_adapter: None,
                                     },
                                 },
                             ),
