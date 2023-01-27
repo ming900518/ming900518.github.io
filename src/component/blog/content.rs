@@ -3,16 +3,13 @@ use comrak::{
     markdown_to_html_with_plugins, ComrakExtensionOptions, ComrakOptions, ComrakParseOptions,
     ComrakPlugins, ComrakRenderOptions, ComrakRenderPlugins,
 };
-use gloo_net::http::Request;
-use web_sys::{Document, window};
+use reqwest::StatusCode;
+use serde::{Serialize, Deserialize};
+// use web_sys::{Document, window};
 use yew::prelude::*;
+use crate::Props;
 
-#[derive(Clone, PartialEq, Properties)]
-pub struct Props {
-    pub id: String
-}
-
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Serialize, Deserialize)]
 struct BlogArticleContent {
     title: String,
     content: String,
@@ -27,79 +24,70 @@ impl Default for BlogArticleContent {
     }
 }
 
-#[function_component(Content)]
-pub fn content(props: &Props) -> Html {
-    let blog_article_content = use_state(|| BlogArticleContent::default());
-    {
-        let blog_article_content = blog_article_content.clone();
-        let id = props.id.clone();
-        use_effect_with_deps(
-            move |_| {
-                let blog_article_content = blog_article_content.clone();
-                let id = id.clone();
-                wasm_bindgen_futures::spawn_local(async move {
-                    let response = Request::get(&*format!("https://raw.githubusercontent.com/ming900518/articles/main/{}", id))
-                            .send()
-                            .await
-                            .unwrap();
-                    let fetched_data = response.text()
-                        .await
-                        .unwrap();
-                    if response.status() == 200 {
-                        let collected_data = fetched_data.as_str().lines().collect::<Vec<&str>>();
-                        let split_data = collected_data.split_first().unwrap_or((&"載入失敗", &["請回上一頁"]));
-                        let title = &split_data.0[2..];
-                        let document = window()
-                            .expect("Window not found.")
-                            .document()
-                            .expect("Document not found.");
-                        Document::set_title(&document, &[title, Document::title(&document).as_str()].join(" - "));
-                        blog_article_content.set(BlogArticleContent {
-                            title: title.parse().unwrap(),
-                            content: markdown_to_html_with_plugins(
-                                split_data.1.join("\n").trim(),
-                                &ComrakOptions {
-                                    extension: ComrakExtensionOptions {
-                                        strikethrough: true,
-                                        table: true,
-                                        tasklist: true,
-                                        superscript: true,
-                                        ..ComrakExtensionOptions::default()
-                                    },
-                                    parse: ComrakParseOptions {
-                                        smart: true,
-                                        ..ComrakParseOptions::default()
-                                    },
-                                    render: ComrakRenderOptions {
-                                        github_pre_lang: true,
-                                        unsafe_: true,
-                                        ..ComrakRenderOptions::default()
-                                    },
-                                },
-                                &ComrakPlugins {
-                                    render: ComrakRenderPlugins {
-                                        codefence_syntax_highlighter: Some(&SyntectAdapter::new(
-                                            "base16-ocean.dark",
-                                        )),
-                                        heading_adapter: None,
-                                    },
-                                },
-                            ),
-                        })
-                    } else {
-                        blog_article_content.set(BlogArticleContent {
-                            title: String::from(format!("錯誤代碼：{}", response.status())),
-                            content: String::from(format!("<p>請確認網址是否正確，網路環境是否暢通<br>如有疑問請<a href=\"mailto:mail@mingchang.tw\">與我聯繫</a></p><p>{}</p>", fetched_data)),
-                        })
-                    }
-                });
-                || ()
-            },
-            (),
-        );
+async fn get_article_html(article_filename: String) -> BlogArticleContent {
+    match reqwest::get(format!("https://raw.githubusercontent.com/ming900518/articles/main/{}", article_filename)).await {
+        Ok(resp) => {
+            let resp_text = resp.text().await.unwrap_or("載入失敗\n請回上一頁".to_string());
+            let collected_data = resp_text.lines().collect::<Vec<&str>>();
+            let split_data = collected_data.split_first().unwrap_or((&"載入失敗", &["請回上一頁"]));
+            let title = &split_data.0[2..];
+            BlogArticleContent {
+                title: title.parse().unwrap(),
+                content: markdown_to_html_with_plugins(
+                    split_data.1.join("\n").trim(),
+                    &ComrakOptions {
+                        extension: ComrakExtensionOptions {
+                            strikethrough: true,
+                            table: true,
+                            tasklist: true,
+                            superscript: true,
+                            ..ComrakExtensionOptions::default()
+                        },
+                        parse: ComrakParseOptions {
+                            smart: true,
+                            ..ComrakParseOptions::default()
+                        },
+                        render: ComrakRenderOptions {
+                            github_pre_lang: true,
+                            unsafe_: true,
+                            ..ComrakRenderOptions::default()
+                        },
+                    },
+                    &ComrakPlugins {
+                        render: ComrakRenderPlugins {
+                            codefence_syntax_highlighter: Some(&SyntectAdapter::new(
+                                "base16-ocean.dark",
+                            )),
+                            heading_adapter: None,
+                        },
+                    },
+                ),
+            }
+        },
+        Err(err) => {
+            BlogArticleContent {
+                title: String::from(format!("錯誤代碼：{}", err.status().unwrap_or(StatusCode::INTERNAL_SERVER_ERROR))),
+                content: String::from("<p>請確認網址是否正確，網路環境是否暢通<br>如有疑問請<a href=\"mailto:mail@mingchang.tw\">與我聯繫</a></p><p>{}</p>"),
+            }
+        }
     }
+}
 
-    return html! {
+#[function_component(Content)]
+pub fn content(props: &Props) -> HtmlResult {
+    let article_filename = props.clone().article_filename.clone();
+    let blog_article_content = use_prepared_state!(async move |_| -> BlogArticleContent { get_article_html(article_filename).await }, ())?.unwrap();
+
+    // NOT WORKING, NEED TO FIND A WORKAROUND.
+    //use_state(|| {
+    //    let document = window()
+    //            .expect("Window not found.")
+    //            .document()
+    //            .expect("Document not found.");
+    //    Document::set_title(&document, &[&blog_article_content.title, Document::title(&document).as_str()].join(" - "));
+    //});
+
+    return Ok(html! {
         <>
         <main id="main" class=" bg-image" style="background-image: url(/assets/img/bg.webp);">
         <div class="intro intro-single route">
@@ -137,5 +125,5 @@ pub fn content(props: &Props) -> Html {
         </section>
         </main>
         </>
-    };
+    });
 }

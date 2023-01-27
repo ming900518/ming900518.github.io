@@ -1,9 +1,8 @@
-use gloo_net::http::Request;
-use serde::Deserialize;
+use serde::{Serialize, Deserialize};
 use time::OffsetDateTime;
 use yew::prelude::*;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct ArticleData {
     name: String,
     #[serde(with = "time::serde::iso8601")]
@@ -11,34 +10,19 @@ struct ArticleData {
     url: String,
 }
 
-#[function_component(Articles)]
-pub fn articles() -> Html {
-    let article_data = use_state(|| vec![]);
-    {
-        let article_data = article_data.clone();
-        use_effect_with_deps(
-            move |_| {
-                let article_data = article_data.clone();
-                wasm_bindgen_futures::spawn_local(async move {
-                    let mut fetched_data: Vec<ArticleData> = Request::get(
-                        "https://raw.githubusercontent.com/ming900518/articles/main/article.json",
-                    )
-                    .send()
-                    .await
-                    .unwrap()
-                    .json()
-                    .await
-                    .unwrap();
-                    fetched_data.sort_by_key(|x| x.date.clone());
-                    fetched_data.reverse();
-                    article_data.set(fetched_data)
-                })
-            },
-            (),
-        )
-    }
+async fn fetch_article_data() -> Vec<ArticleData> {
+    let resp = reqwest::get("https://raw.githubusercontent.com/ming900518/articles/main/article.json").await.unwrap();
+    let mut fetched_data = resp.json::<Vec<ArticleData>>().await.unwrap();
+    fetched_data.sort_by_key(|x| x.date.clone());
+    fetched_data.reverse();
+    fetched_data
+}
 
-    let blocks = &article_data.iter().map(|data| {
+#[function_component(Articles)]
+pub fn articles() -> HtmlResult {
+    let article_data = use_prepared_state!(async move |_| -> Vec<ArticleData> { fetch_article_data().await }, ())?.unwrap();
+
+    let blocks = article_data.iter().map(|data| {
         let url = data.url.as_str().to_string();
         return html! {
             <div class="col-md-12">
@@ -60,7 +44,7 @@ pub fn articles() -> Html {
         };
     }).collect::<Html>();
 
-    return html! {
+    return Ok(html! {
         <section id="articles" class="portfolio-mf sect-pt4 route footer-paralax" style="padding-bottom: 4em;">
             <div class="container">
                 <div class="row">
@@ -110,5 +94,5 @@ pub fn articles() -> Html {
                 </div>
             </div>
         </section>
-    };
+    });
 }

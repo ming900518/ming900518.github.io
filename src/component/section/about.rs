@@ -1,18 +1,7 @@
 use yew::prelude::*;
-use gloo_console::error;
-use web_sys::{window, Location};
 
 #[function_component(About)]
 pub fn about() -> Html {
-    fn link_click(link: &str) {
-        let document = window()
-            .expect("Window not found.")
-            .document()
-            .expect("Document not found.");
-        Location::set_href(&document.location().unwrap(), link)
-            .unwrap_or_else(|_| error!("Can't set_href."));
-    }
-
     return html! {
         <section id="about" class="about-mf sect-pt4 route">
             <div class="container">
@@ -89,22 +78,26 @@ pub fn about() -> Html {
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center" style="padding-top: 2em;">
-                                        <button type="submit" class="button button-a button-big button-rouded"
-                                            onclick={ move |_| { link_click("https://twitter.com/mingchang137");}}>
-                                            <span class="ion-social-twitter">{" Twitter"}</span>
-                                        </button>
-                                        <button type="submit" class="button button-a button-big button-rouded"
-                                            onclick={ move |_| { link_click("https://www.instagram.com/mingchang900518/");}}>
-                                            <span class="ion-social-instagram">{" Instagram"}</span>
-                                        </button>
-                                        <button type="submit" class="button button-a button-big button-rouded"
-                                            onclick={ move |_| { link_click("https://www.reddit.com/user/MingChang137");}}>
-                                            <span class="ion-social-reddit">{" Reddit"}</span>
-                                        </button>
-                                        <button type="submit" class="button button-a button-big button-rouded"
-                                            onclick={ move |_| { link_click("https://github.com/ming900518");}}>
-                                            <span class="ion-social-github">{" GitHub"}</span>
-                                        </button>
+                                        <a href="https://twitter.com/mingchang137">
+                                            <button type="submit" class="button button-a button-big button-rouded">
+                                                <span class="ion-social-twitter">{" Twitter"}</span>
+                                            </button>
+                                        </a>
+                                        <a href="https://www.instagram.com/mingchang900518/">
+                                            <button type="submit" class="button button-a button-big button-rouded">
+                                                <span class="ion-social-instagram">{" Instagram"}</span>
+                                            </button>
+                                        </a>
+                                        <a href="https://www.reddit.com/user/MingChang137">
+                                            <button type="submit" class="button button-a button-big button-rouded">
+                                                <span class="ion-social-reddit">{" Reddit"}</span>
+                                            </button>
+                                        </a>
+                                        <a href="https://github.com/ming900518">
+                                            <button type="submit" class="button button-a button-big button-rouded">
+                                                <span class="ion-social-github">{" GitHub"}</span>
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
