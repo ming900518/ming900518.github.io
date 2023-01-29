@@ -39,11 +39,10 @@ pub fn articles() -> Html {
     }
 
     let blocks = &article_data.iter().map(|data| {
-        let url = data.url.as_str().to_string();
         return html! {
             <div class="col-md-12">
                 <div class="work-box">
-                    <a href={format!("/blog/{}",url)}>
+                    <a href={format!("/blog/{}", &data.url)}>
                         <div class="work-content">
                             <div class="row">
                                 <div class="col-sm-12">
