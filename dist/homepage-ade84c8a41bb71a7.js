@@ -909,7 +909,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('homepage-ad50b6afb1beacc6_bg.wasm', import.meta.url);
+        input = new URL('homepage-ade84c8a41bb71a7_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

@@ -125,7 +125,7 @@ pub fn content(props: &Props) -> Html {
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="article-content">
-                                    <div class="title-box" id="articleContent">
+                                    <div class="title-box" id="article-content">
                                         {Html::from_html_unchecked(blog_article_content.content.clone().into())}
                                     </div>
                                     </div>
