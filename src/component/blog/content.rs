@@ -89,7 +89,7 @@ pub fn content(props: &Props) -> HtmlResult {
 
     return Ok(html! {
         <>
-        <main id="main" class=" bg-image" style="background-image: url(/assets/img/bg.webp);">
+        <main id="main" class="bg-image" style="background-image: url(/assets/img/bg.webp);">
         <div class="intro intro-single route">
             <div class="overlay-mf"></div>
             <div class="intro-content display-table">
@@ -113,8 +113,10 @@ pub fn content(props: &Props) -> HtmlResult {
                         <div id="contact" class="box-shadow-full">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <div class="title-box" id="articleContent">
+                                    <div class="article-content">
+                                    <div class="title-box" id="article-content">
                                         {Html::from_html_unchecked(blog_article_content.content.clone().into())}
+                                    </div>
                                     </div>
                                 </div>
                             </div>
