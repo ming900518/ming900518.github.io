@@ -79,7 +79,7 @@ async fn page_assembler(content: String) -> axum::response::Html<String> {
 
 #[tokio::main]
 async fn main() {
-    let addr = SocketAddr::from(([0, 0, 0, 0], 80));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
 
     let spa = SpaRouter::new("/assets", "assets");
 
