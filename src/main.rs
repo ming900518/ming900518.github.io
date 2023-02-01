@@ -1,5 +1,6 @@
 use axum::{response::IntoResponse, routing::get, extract::Path};
 use axum_extra::routing::SpaRouter;
+use axum_server::tls_rustls::RustlsConfig;
 use std::net::SocketAddr;
 use component::{blog::content::*, footer::*, main::*, navbar::*};
 use yew::{prelude::*, ServerRenderer};
@@ -79,13 +80,20 @@ async fn page_assembler(content: String) -> axum::response::Html<String> {
 
 #[tokio::main]
 async fn main() {
-    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 443));
 
     let spa = SpaRouter::new("/assets", "assets");
 
     println!("Listening on {}", addr);
 
-    axum::Server::bind(&addr)
+    let config = RustlsConfig::from_pem_file(
+        "ssl/ssl.pem",
+        "ssl/ssl.key",
+    )
+    .await
+    .unwrap();
+
+    axum_server::bind_rustls(addr, config)
         .serve(axum::Router::new()
             .route("/", get(main_page))
             .route("/blog/:article_filename", get(blog_page))

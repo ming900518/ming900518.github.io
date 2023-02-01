@@ -13,10 +13,12 @@ wasm-bindgen-futures = "0.4"
 comrak = "0.16.0"
 time = { version = "0.3.17", features = ["macros", "serde", "formatting", "parsing"]  }
 axum = { version = "0.6.4", features = ["query"] }
+axum-server = { version = "0.4.4", features = ["tls-rustls"]}
 axum-extra = { version = "0.4.2", features = ["spa"] }
 tokio = { version = "1.24.2", features = ["full"] }
-reqwest = { version = "0.11.14", features = ["json"] }
+reqwest = { version = "0.11.14", default-features = false, features = ["json", "rustls-tls"] }
 
 [profile.release]
 lto = true
-opt-level = 's'
+opt-level = 3
+codegen-units = 1
