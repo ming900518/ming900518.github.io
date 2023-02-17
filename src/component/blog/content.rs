@@ -4,10 +4,10 @@ use comrak::{
     ComrakPlugins, ComrakRenderOptions, ComrakRenderPlugins,
 };
 use reqwest::StatusCode;
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 // use web_sys::{Document, window};
-use yew::prelude::*;
 use crate::Props;
+use yew::prelude::*;
 
 #[derive(Clone, PartialEq, Serialize, Deserialize)]
 struct BlogArticleContent {
@@ -76,16 +76,11 @@ async fn get_article_html(article_filename: String) -> BlogArticleContent {
 #[function_component(Content)]
 pub fn content(props: &Props) -> HtmlResult {
     let article_filename = props.clone().article_filename.clone();
-    let blog_article_content = use_prepared_state!(async move |_| -> BlogArticleContent { get_article_html(article_filename).await }, ())?.unwrap();
-
-    // NOT WORKING, NEED TO FIND A WORKAROUND.
-    //use_state(|| {
-    //    let document = window()
-    //            .expect("Window not found.")
-    //            .document()
-    //            .expect("Document not found.");
-    //    Document::set_title(&document, &[&blog_article_content.title, Document::title(&document).as_str()].join(" - "));
-    //});
+    let blog_article_content = use_prepared_state!(
+        async move |_| -> BlogArticleContent { get_article_html(article_filename).await },
+        ()
+    )?
+    .unwrap();
 
     return Ok(html! {
         <>

@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 use time::OffsetDateTime;
 use yew::prelude::*;
 
@@ -11,7 +11,10 @@ struct ArticleData {
 }
 
 async fn fetch_article_data() -> Vec<ArticleData> {
-    let resp = reqwest::get("https://raw.githubusercontent.com/ming900518/articles/main/article.json").await.unwrap();
+    let resp =
+        reqwest::get("https://raw.githubusercontent.com/ming900518/articles/main/article.json")
+            .await
+            .unwrap();
     let mut fetched_data = resp.json::<Vec<ArticleData>>().await.unwrap();
     fetched_data.sort_by_key(|x| x.date.clone());
     fetched_data.reverse();
@@ -20,7 +23,11 @@ async fn fetch_article_data() -> Vec<ArticleData> {
 
 #[function_component(Articles)]
 pub fn articles() -> HtmlResult {
-    let article_data = use_prepared_state!(async move |_| -> Vec<ArticleData> { fetch_article_data().await }, ())?.unwrap();
+    let article_data = use_prepared_state!(
+        async move |_| -> Vec<ArticleData> { fetch_article_data().await },
+        ()
+    )?
+    .unwrap();
 
     let blocks = article_data.iter().map(|data| {
         let url = data.url.as_str().to_string();
