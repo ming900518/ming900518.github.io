@@ -1,3 +1,5 @@
+#![allow(non_camel_case_types)]
+#![warn(clippy::all, clippy::pedantic, clippy::nursery)]
 use axum::{extract::Path, response::IntoResponse, routing::get};
 use axum_extra::routing::SpaRouter;
 use axum_server::tls_rustls::RustlsConfig;
@@ -8,7 +10,7 @@ mod component;
 
 #[function_component(MainApp)]
 fn main_app() -> Html {
-    return html! {
+    html! {
         <>
         <NavBar />
         <div id="home" class="intro route bg-image" style="background-image: url(/assets/img/bg.webp)">
@@ -26,7 +28,7 @@ fn main_app() -> Html {
         <Footer />
         <MainScript />
         </>
-    };
+    }
 }
 
 #[derive(Properties, PartialEq)]
@@ -38,7 +40,7 @@ pub struct Props {
 fn blog_app(props: &Props) -> Html {
     let fallback = html! {<div>{"Loading..."}</div>};
     let article_filename = props.article_filename.clone();
-    return html! {
+    html! {
         <>
             <Suspense { fallback }>
                 <Content { article_filename }/>
@@ -46,16 +48,16 @@ fn blog_app(props: &Props) -> Html {
                 <MainScript />
             </Suspense>
         </>
-    };
+    }
 }
 
 #[function_component(MainScript)]
 fn main_script() -> Html {
-    return html! {
+    html! {
         <>
         <script src="/assets/js/main.js"></script>
         </>
-    };
+    }
 }
 
 async fn main_page() -> impl IntoResponse {
@@ -78,10 +80,8 @@ async fn page_assembler(content: String) -> axum::response::Html<String> {
 
     let (index_html_before, index_html_after) =
         index_html.split_once("<body id=\"page-top\">").unwrap();
-    let mut index_html_before = index_html_before.to_owned();
-    index_html_before.push_str(content.as_str());
-    index_html_before.push_str(index_html_after);
-    axum::response::Html::from(index_html_before)
+    let html = format!("{index_html_before}{content}{index_html_after}");
+    axum::response::Html::from(html)
 }
 
 async fn page_assembler_blog(content: String) -> axum::response::Html<String> {
@@ -102,14 +102,8 @@ async fn page_assembler_blog(content: String) -> axum::response::Html<String> {
         .split_once("<body id=\"page-top\">")
         .unwrap();
 
-    let mut index_html_before_title = index_html_before_title.to_owned();
-    index_html_before_title.push_str("<title>");
-    index_html_before_title.push_str(title);
-    index_html_before_title.push_str(" - ");
-    index_html_before_title.push_str(index_html_before_content);
-    index_html_before_title.push_str(content.as_str());
-    index_html_before_title.push_str(index_html_after_content);
-    axum::response::Html::from(index_html_before_title)
+    let html = format!("{index_html_before_title}<title>{title} - {index_html_before_content}{content}{index_html_after_content}");
+    axum::response::Html::from(html)
 }
 
 #[tokio::main]
