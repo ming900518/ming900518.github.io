@@ -2,7 +2,7 @@ use yew::prelude::*;
 
 #[function_component(Work)]
 pub fn work() -> Html {
-    return html! {
+    html! {
         <section id="work" class="services-mf pt-5 route">
             <div class="container">
                 <div class="row">
@@ -58,5 +58,5 @@ pub fn work() -> Html {
                 </div>
             </div>
         </section>
-    };
+    }
 }

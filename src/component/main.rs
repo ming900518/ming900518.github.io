@@ -1,13 +1,13 @@
 use crate::component::section::{
-    about::*, showcase::*, testimonials::*, work::*,
+    about::About, showcase::Showcase, testimonials::Testimonials, work::Work,
 };
-use crate::component::blog::articles::*;
+use crate::component::blog::articles::Articles;
 use yew::prelude::*;
 
 #[function_component(Main)]
 pub fn main() -> Html {
     let fallback = html!{<div>{"Loading..."}</div>};
-    return html! {
+    html! {
         <main id="main">
             <About />
             <Showcase />
@@ -17,5 +17,5 @@ pub fn main() -> Html {
                 <Articles />
             </Suspense>
         </main>
-    };
+    }
 }

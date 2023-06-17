@@ -2,7 +2,7 @@ use yew::prelude::*;
 
 #[function_component(Showcase)]
 pub fn show_case() -> Html {
-    return html! {
+    html! {
         <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/bg.webp)">
             <div class="overlay-mf"></div>
             <div class="container">
@@ -54,5 +54,5 @@ pub fn show_case() -> Html {
                 </div>
             </div>
         </div>
-    };
+    }
 }

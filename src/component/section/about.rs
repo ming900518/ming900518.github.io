@@ -2,7 +2,7 @@ use yew::prelude::*;
 
 #[function_component(About)]
 pub fn about() -> Html {
-    return html! {
+    html! {
         <section id="about" class="about-mf sect-pt4 route">
             <div class="container">
                 <div class="row">
@@ -105,5 +105,5 @@ pub fn about() -> Html {
                     </div>
             </div>
         </section>
-    };
+    }
 }

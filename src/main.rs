@@ -3,7 +3,7 @@
 use axum::{extract::Path, response::IntoResponse, routing::get};
 use axum_extra::routing::SpaRouter;
 use axum_server::tls_rustls::RustlsConfig;
-use component::{blog::content::*, footer::*, main::*, navbar::*};
+use component::{blog::content::Content, footer::Footer, main::Main, navbar::NavBar};
 use std::net::SocketAddr;
 use yew::{prelude::*, ServerRenderer};
 mod component;
@@ -31,7 +31,7 @@ fn main_app() -> Html {
     }
 }
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Eq)]
 pub struct Props {
     pub article_filename: String,
 }
@@ -115,22 +115,19 @@ async fn main() {
         .merge(spa)
         .into_make_service();
 
-    match RustlsConfig::from_pem_file("ssl/ssl.pem", "ssl/ssl.key").await {
-        Ok(config) => {
-            let addr = SocketAddr::from(([0, 0, 0, 0], 443));
-            println!("SSL enabled. Listening on {}", addr);
-            axum_server::bind_rustls(addr, config)
-                .serve(router)
-                .await
-                .expect("Server startup failed.");
-        }
-        Err(_) => {
-            let addr = SocketAddr::from(([0, 0, 0, 0], 80));
-            println!("SSL disabled. Listening on {}", addr);
-            axum_server::bind(addr)
-                .serve(router)
-                .await
-                .expect("Server startup failed.");
-        }
+    if let Ok(config) = RustlsConfig::from_pem_file("ssl/ssl.pem", "ssl/ssl.key").await {
+        let addr = SocketAddr::from(([0, 0, 0, 0], 443));
+        println!("SSL enabled. Listening on {addr}");
+        axum_server::bind_rustls(addr, config)
+            .serve(router)
+            .await
+            .expect("Server startup failed.");
+    } else {
+        let addr = SocketAddr::from(([0, 0, 0, 0], 80));
+        println!("SSL disabled. Listening on {addr}");
+        axum_server::bind(addr)
+            .serve(router)
+            .await
+            .expect("Server startup failed.");
     }
 }

@@ -2,7 +2,7 @@ use yew::prelude::*;
 
 #[function_component(Footer)]
 pub fn footer() -> Html {
-    return html! {
+    html! {
         <footer>
             <div class="container">
                 <div class="row">
@@ -17,5 +17,5 @@ pub fn footer() -> Html {
                 </div>
             </div>
         </footer>
-    };
+    }
 }

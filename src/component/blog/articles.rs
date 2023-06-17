@@ -16,7 +16,7 @@ async fn fetch_article_data() -> Vec<ArticleData> {
             .await
             .unwrap();
     let mut fetched_data = resp.json::<Vec<ArticleData>>().await.unwrap();
-    fetched_data.sort_by_key(|x| x.date.clone());
+    fetched_data.sort_by_key(|x| x.date);
     fetched_data.reverse();
     fetched_data
 }
@@ -31,10 +31,10 @@ pub fn articles() -> HtmlResult {
 
     let blocks = article_data.iter().map(|data| {
         let url = data.url.as_str().to_string();
-        return html! {
+        html! {
             <div class="col-md-12">
                 <div class="work-box">
-                    <a href={format!("/blog/{}",url)}>
+                    <a href={format!("/blog/{url}")}>
                         <div class="work-content">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -48,10 +48,10 @@ pub fn articles() -> HtmlResult {
                     </a>
                 </div>
             </div>
-        };
+        }
     }).collect::<Html>();
 
-    return Ok(html! {
+    Ok(html! {
         <section id="articles" class="portfolio-mf sect-pt4 route footer-paralax" style="padding-bottom: 4em;">
             <div class="container">
                 <div class="row">
@@ -101,5 +101,5 @@ pub fn articles() -> HtmlResult {
                 </div>
             </div>
         </section>
-    });
+    })
 }

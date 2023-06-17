@@ -2,7 +2,7 @@ use yew::prelude::*;
 
 #[function_component(NavBar)]
 pub fn nav_bar() -> Html {
-    return html! {
+    html! {
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center justify-content-between">
                 <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top d-none d-sm-block" id="mainNav">
@@ -27,5 +27,5 @@ pub fn nav_bar() -> Html {
                 </nav>
             </div>
         </header>
-    };
+    }
 }

@@ -17,7 +17,7 @@ struct BlogArticleContent {
 
 impl Default for BlogArticleContent {
     fn default() -> Self {
-        BlogArticleContent {
+        Self {
             title: String::from("文章載入中，請稍候......"),
             content: String::from("<p>無法載入？請檢查網路環境，或<a href=\"mailto:mail@mingchang,tw\">與我聯繫</a></p>"),
         }
@@ -25,9 +25,9 @@ impl Default for BlogArticleContent {
 }
 
 async fn get_article_html(article_filename: String) -> BlogArticleContent {
-    match reqwest::get(format!("https://raw.githubusercontent.com/ming900518/articles/main/{}", article_filename)).await {
+    match reqwest::get(format!("https://raw.githubusercontent.com/ming900518/articles/main/{article_filename}")).await {
         Ok(resp) => {
-            let resp_text = resp.text().await.unwrap_or("載入失敗\n請回上一頁".to_string());
+            let resp_text = resp.text().await.unwrap_or_else(|_| "載入失敗\n請回上一頁".to_string());
             let collected_data = resp_text.lines().collect::<Vec<&str>>();
             let split_data = collected_data.split_first().unwrap_or((&"載入失敗", &["請回上一頁"]));
             let title = &split_data.0[2..];
@@ -66,7 +66,7 @@ async fn get_article_html(article_filename: String) -> BlogArticleContent {
         },
         Err(err) => {
             BlogArticleContent {
-                title: String::from(format!("錯誤代碼：{}", err.status().unwrap_or(StatusCode::INTERNAL_SERVER_ERROR))),
+                title: format!("錯誤代碼：{}", err.status().unwrap_or(StatusCode::INTERNAL_SERVER_ERROR)),
                 content: String::from("<p>請確認網址是否正確，網路環境是否暢通<br>如有疑問請<a href=\"mailto:mail@mingchang.tw\">與我聯繫</a></p><p>{}</p>"),
             }
         }
@@ -75,14 +75,14 @@ async fn get_article_html(article_filename: String) -> BlogArticleContent {
 
 #[function_component(Content)]
 pub fn content(props: &Props) -> HtmlResult {
-    let article_filename = props.clone().article_filename.clone();
+    let article_filename = props.article_filename.clone();
     let blog_article_content = use_prepared_state!(
         async move |_| -> BlogArticleContent { get_article_html(article_filename).await },
         ()
     )?
     .unwrap();
 
-    return Ok(html! {
+    Ok(html! {
         <>
         <main id="main" class="bg-image" style="background-image: url(/assets/img/bg.webp);">
         <div class="intro intro-single route">
@@ -122,5 +122,5 @@ pub fn content(props: &Props) -> HtmlResult {
         </section>
         </main>
         </>
-    });
+    })
 }
