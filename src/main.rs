@@ -1,10 +1,12 @@
 #![allow(non_camel_case_types)]
 #![warn(clippy::all, clippy::pedantic, clippy::nursery)]
 use axum::{extract::Path, response::IntoResponse, routing::get};
-use axum_extra::routing::SpaRouter;
 use axum_server::tls_rustls::RustlsConfig;
 use component::{blog::content::Content, footer::Footer, main::Main, navbar::NavBar};
+use tracing::Level;
+use tracing_subscriber::{filter, layer::SubscriberExt, util::SubscriberInitExt};
 use std::net::SocketAddr;
+use tower_http::{services::ServeDir, trace::TraceLayer};
 use yew::{prelude::*, ServerRenderer};
 mod component;
 
@@ -108,11 +110,21 @@ async fn page_assembler_blog(content: String) -> axum::response::Html<String> {
 
 #[tokio::main]
 async fn main() {
-    let spa = SpaRouter::new("/assets", "assets");
+    let tracing_filter = filter::Targets::new()
+        .with_target("tower_http::trace::on_response", Level::DEBUG)
+        .with_target("tower_http::trace::on_request", Level::DEBUG)
+        .with_target("tower_http::trace::make_span", Level::DEBUG)
+        .with_default(Level::INFO);
+    tracing_subscriber::registry()
+        .with(tracing_subscriber::fmt::layer())
+        .with(tracing_filter)
+        .init();
+    let assets = ServeDir::new("assets");
     let router = axum::Router::new()
         .route("/", get(main_page))
         .route("/blog/:article_filename", get(blog_page))
-        .merge(spa)
+        .nest_service("/assets", assets)
+        .layer(TraceLayer::new_for_http())
         .into_make_service();
 
     if let Ok(config) = RustlsConfig::from_pem_file("ssl/ssl.pem", "ssl/ssl.key").await {
