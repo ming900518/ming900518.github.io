@@ -23,8 +23,6 @@ pub fn about() -> Html {
                                                 <p><span class="title-s">{"Email: "}</span> <span><a
                                                             href="mailto:mail@mingchang.tw">
                                                             {"mail@mingchang.tw"}</a></span></p>
-                                                <p><span class="title-s">{"電話: "}</span> <span><a href="tel:+886919488769">
-                                                            {"+886 919-488-679"}</a></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -60,42 +58,46 @@ pub fn about() -> Html {
                                             </h5>
                                         </div>
                                         <p class="lead">
-                                            {"曾任職於"}<a
-                                                href="https://www.sourcecode.tw">{"原碼數位科技"}</a>{"，擔任全端工程師兼任MIS工程師，在公司中除了進行維護和開發外，也負責著公司專案測試及軟硬體環境搭建的工作。"}
+                                            {"全端工程師兼任 MIS 工程師，在公司中除了進行維護和開發外，也負責著公司專案測試及軟硬體環境搭建的工作。"}
                                         </p>
                                         <p class="lead">
-                                            {"雖然身為全端工程師，但其實比較喜歡後端😂，也有自己開發過原生程式和智能合約"}
+                                            {"雖然身為全端工程師，但其實比較喜歡後端 😂 ，也有自己開發過原生程式和智能合約"}
                                         </p>
                                         <p class="lead">
-                                            {"Java專注於Spring框架，除了傳統的Spring MVC，已將研究方向轉向Spring WebFlux，並樂於引入Spring Native等新技術。"}
+                                            {"Java 專注於 Spring 框架，除了傳統的 Spring MVC ，已將研究方向轉向 Spring WebFlux ，並樂於引入 Spring Native 等新技術。"}
                                         </p>
                                         <p class="lead">
-                                            {"日前則專注於Rust開發，正在運用Tokio/Axum框架製作過微服務模組，也同時使用NEAR鏈開發智能合約。"}
+                                            {"日前則專注於 Rust 開發，正在運用 Tokio/Axum 框架製作過微服務模組，也同時使用 NEAR 鏈開發智能合約。"}
                                         </p>
                                         <p class="lead">
-                                            <strong>{"本頁採用Rust與Yew框架編譯WebAssembly實作功能"}</strong>
+                                            <strong>{"本頁採用 Rust 與 Yew 框架編譯 WebAssembly 實作功能"}</strong>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center" style="padding-top: 2em;">
+                                        <a rel="me" href="https://mstdn.social/@mingchang">
+                                            <button type="submit" class="button button-a button-big button-rouded">
+                                                <span>{"Mastodon"}</span>
+                                            </button>
+                                        </a>
                                         <a href="https://twitter.com/mingchang137">
                                             <button type="submit" class="button button-a button-big button-rouded">
-                                                <span class="ion-social-twitter">{" Twitter"}</span>
+                                                <span>{"Twitter"}</span>
                                             </button>
                                         </a>
                                         <a href="https://www.instagram.com/mingchang900518/">
                                             <button type="submit" class="button button-a button-big button-rouded">
-                                                <span class="ion-social-instagram">{" Instagram"}</span>
+                                                <span>{"Instagram"}</span>
                                             </button>
                                         </a>
                                         <a href="https://www.reddit.com/user/MingChang137">
                                             <button type="submit" class="button button-a button-big button-rouded">
-                                                <span class="ion-social-reddit">{" Reddit"}</span>
+                                                <span>{"Reddit"}</span>
                                             </button>
                                         </a>
                                         <a href="https://github.com/ming900518">
                                             <button type="submit" class="button button-a button-big button-rouded">
-                                                <span class="ion-social-github">{" GitHub"}</span>
+                                                <span>{"GitHub"}</span>
                                             </button>
                                         </a>
                                     </div>

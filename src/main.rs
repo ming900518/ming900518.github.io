@@ -20,7 +20,7 @@ fn main_app() -> Html {
             <div class="intro-content display-table">
                 <div class="table-cell">
                     <div class="container">
-                        <p class="intro-subtitle"><span class="text-slider-items">{"全端工程師,MIS工程師,iOS程式開發者"}</span><strong class="text-slider"></strong></p>
+                        <p class="intro-subtitle"><span class="text-slider-items">{"Backend & MIS Engineer,Rustaceans,Neovim lover"}</span><strong class="text-slider"></strong></p>
                         <h1 class="intro-title mb-4">{"Ming Chang"}</h1>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ async fn main() {
             .await
             .expect("Server startup failed.");
     } else {
-        let addr = SocketAddr::from(([0, 0, 0, 0], 80));
+        let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
         println!("SSL disabled. Listening on {addr}");
         axum_server::bind(addr)
             .serve(router)

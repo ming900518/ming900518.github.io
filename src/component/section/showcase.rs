@@ -24,7 +24,7 @@ pub fn show_case() -> Html {
                                 <span class="ico-circle"><i class="ion-ios-book"></i></span>
                             </div>
                             <div class="counter-num">
-                                <p class="counter">{"6"}</p>
+                                <p class="counter">{"35"}</p>
                                 <span class="counter-text">{"Rust 專案"}</span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@ pub fn show_case() -> Html {
                                 <span class="ico-circle"><i class="ion-iphone"></i></span>
                             </div>
                             <div class="counter-num">
-                                <p class="counter">{"40"}</p>
+                                <p class="counter">{"45"}</p>
                                 <span class="counter-text">{"後端系統搭建"}</span>
                             </div>
                         </div>
