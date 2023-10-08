@@ -2,12 +2,14 @@ use serde::{Deserialize, Serialize};
 use time::OffsetDateTime;
 use yew::prelude::*;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone)]
 struct ArticleData {
     name: String,
     #[serde(with = "time::serde::iso8601")]
     date: OffsetDateTime,
     url: String,
+    intro: Option<String>,
+    commit: String,
 }
 
 async fn fetch_article_data() -> Vec<ArticleData> {
@@ -30,11 +32,12 @@ pub fn articles() -> HtmlResult {
     .unwrap();
 
     let blocks = article_data.iter().map(|data| {
+        let commit = data.commit.as_str().to_string();
         let url = data.url.as_str().to_string();
         html! {
             <div class="col-md-12">
                 <div class="work-box">
-                    <a href={format!("/blog/{url}")}>
+                    <a href={format!("https://blog.mingchang.tw/blog/?filename={url}&commit={commit}")}>
                         <div class="work-content">
                             <div class="row">
                                 <div class="col-sm-12">
