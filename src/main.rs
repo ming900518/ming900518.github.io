@@ -1,12 +1,21 @@
 #![allow(non_camel_case_types)]
 #![warn(clippy::all, clippy::pedantic, clippy::nursery)]
-use axum::{extract::Path, response::IntoResponse, routing::get};
+use axum::{
+    extract::Path,
+    response::{IntoResponse, Redirect},
+    routing::get,
+};
 use axum_server::tls_rustls::RustlsConfig;
-use component::{blog::content::Content, footer::Footer, main::Main, navbar::NavBar};
-use tracing::Level;
-use tracing_subscriber::{filter, layer::SubscriberExt, util::SubscriberInitExt};
+use component::{
+    blog::{articles::ArticleData, content::Content},
+    footer::Footer,
+    main::Main,
+    navbar::NavBar,
+};
 use std::net::SocketAddr;
 use tower_http::{services::ServeDir, trace::TraceLayer};
+use tracing::Level;
+use tracing_subscriber::{filter, layer::SubscriberExt, util::SubscriberInitExt};
 use yew::{prelude::*, ServerRenderer};
 mod component;
 
@@ -67,12 +76,20 @@ async fn main_page() -> impl IntoResponse {
 }
 
 async fn blog_page(Path(article_filename): Path<String>) -> impl IntoResponse {
-    page_assembler_blog(
-        ServerRenderer::<BlogApp>::with_props(|| Props { article_filename })
-            .render()
-            .await,
-    )
-    .await
+    let resp =
+        reqwest::get("https://raw.githubusercontent.com/ming900518/articles/main/article.json")
+            .await
+            .unwrap();
+    match resp.json::<Vec<ArticleData>>().await.ok().and_then(|vec| {
+        vec.into_iter()
+            .find(|article_data| article_data.url == article_filename)
+    }) {
+        Some(article_data) => Redirect::permanent(&format!(
+            "https://blog.mingchang.tw/blog/?filename={}&commit={}",
+            article_data.url, article_data.commit
+        )),
+        None => Redirect::permanent("https://blog.mingchang.tw"),
+    }
 }
 
 async fn page_assembler(content: String) -> axum::response::Html<String> {
@@ -86,7 +103,7 @@ async fn page_assembler(content: String) -> axum::response::Html<String> {
     axum::response::Html::from(html)
 }
 
-async fn page_assembler_blog(content: String) -> axum::response::Html<String> {
+async fn _page_assembler_blog(content: String) -> axum::response::Html<String> {
     let index_html = tokio::fs::read_to_string("index.html")
         .await
         .expect("failed to read index.html");

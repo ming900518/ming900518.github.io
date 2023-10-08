@@ -3,13 +3,13 @@ use time::OffsetDateTime;
 use yew::prelude::*;
 
 #[derive(Serialize, Deserialize, Clone)]
-struct ArticleData {
-    name: String,
+pub struct ArticleData {
+    pub name: String,
     #[serde(with = "time::serde::iso8601")]
-    date: OffsetDateTime,
-    url: String,
-    intro: Option<String>,
-    commit: String,
+    pub date: OffsetDateTime,
+    pub url: String,
+    pub intro: Option<String>,
+    pub commit: String,
 }
 
 async fn fetch_article_data() -> Vec<ArticleData> {
