@@ -24,7 +24,7 @@ fn main_app() -> Html {
     html! {
         <>
         <NavBar />
-        <div id="home" class="intro route bg-image" style="background-image: url(/assets/img/bg.webp)">
+        <div id="home" class="intro route bg-image">
             <div class="overlay-itro"></div>
             <div class="intro-content display-table">
                 <div class="table-cell">
@@ -127,11 +127,8 @@ async fn _page_assembler_blog(content: String) -> axum::response::Html<String> {
 
 #[tokio::main]
 async fn main() {
-    let tracing_filter = filter::Targets::new()
-        .with_target("tower_http::trace::on_response", Level::DEBUG)
-        .with_target("tower_http::trace::on_request", Level::DEBUG)
-        .with_target("tower_http::trace::make_span", Level::DEBUG)
-        .with_default(Level::INFO);
+    let tracing_filter = filter::Targets::new().with_default(Level::INFO);
+
     tracing_subscriber::registry()
         .with(tracing_subscriber::fmt::layer())
         .with(tracing_filter)

@@ -5,7 +5,6 @@
 * License: https://bootstrapmade.com/license/
 */
 
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -101,7 +100,7 @@ a:hover {
     padding: 0;
     height: 100%;
     width: 100%;
-    opacity: .7;
+    opacity: 0.7;
 }
 
 .paralax-mf {
@@ -120,7 +119,6 @@ a:hover {
     vertical-align: middle;
 }
 
-
 /*--/ Sections /--*/
 
 .sect-4 {
@@ -135,7 +133,6 @@ a:hover {
     margin-top: 4rem;
 }
 
-
 /*--/ Title s /--*/
 
 .title-s {
@@ -144,7 +141,6 @@ a:hover {
     font-size: 1.1rem;
 }
 
-
 /*--/ Title A /--*/
 
 .title-box {
@@ -152,7 +148,7 @@ a:hover {
     width: 100%;
 }
 
-.title-box img{
+.title-box img {
     max-width: 100% !important;
     object-fit: cover;
 }
@@ -174,7 +170,6 @@ a:hover {
     margin: 0 auto;
 }
 
-
 /*--/ Title Left /--*/
 
 .title-box-2 {
@@ -187,14 +182,13 @@ a:hover {
 }
 
 .title-left:before {
-    content: '';
+    content: "";
     position: absolute;
     height: 3px;
     background-color: rgb(45, 65, 85);
     width: 100px;
     bottom: -12px;
 }
-
 
 /*------/ Box /------*/
 
@@ -208,7 +202,9 @@ a:hover {
     background-color: #ffffff;
     margin-bottom: 3rem;
     z-index: 2;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow:
+        0 1px 1px 0 rgba(0, 0, 0, 0.06),
+        0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 768px) {
@@ -216,7 +212,6 @@ a:hover {
         padding: 3rem;
     }
 }
-
 
 /*------/ Socials /------*/
 
@@ -246,7 +241,6 @@ a:hover {
     transition: all 500ms ease;
 }
 
-
 /*------/ Ul resect /------*/
 
 .ul-resect,
@@ -270,7 +264,6 @@ a:hover {
     margin-right: 10px;
 }
 
-
 /*------/ Ico Circle /------*/
 
 .ico-circle {
@@ -284,7 +277,6 @@ a:hover {
     box-shadow: 0 0 0 10px rgb(45, 65, 85);
     display: block;
 }
-
 
 /*------/ Owl Carousel /------*/
 
@@ -313,10 +305,9 @@ a:hover {
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-    background-color: #1B1B1B;
+    background-color: #1b1b1b;
     width: 25px;
 }
-
 
 /*--/ Scrolltop s /--*/
 
@@ -331,7 +322,7 @@ a:hover {
     width: 42px;
     height: 42px;
     background-color: rgb(45, 65, 85);
-    opacity: .7;
+    opacity: 0.7;
     font-size: 1.6rem;
     line-height: 1.5;
     text-align: center;
@@ -343,7 +334,6 @@ a:hover {
     cursor: pointer;
     border-radius: 50%;
 }
-
 
 /*------/ Back to top button /------*/
 
@@ -374,7 +364,6 @@ a:hover {
         bottom: 15px;
     }
 }
-
 
 /*------/ Prelaoder /------*/
 
@@ -421,12 +410,11 @@ a:hover {
     }
 }
 
-
 /*------/ Button /------*/
 
 .button {
     display: inline-block;
-    padding: .3rem .6rem;
+    padding: 0.3rem 0.6rem;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
@@ -434,7 +422,7 @@ a:hover {
     -ms-user-select: none;
     user-select: none;
     font-size: 1rem;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     border: 1px solid transparent;
     transition: all 500ms ease;
     cursor: pointer;
@@ -457,7 +445,7 @@ a:hover {
 }
 
 .button-big {
-    padding: .9rem 2.3rem;
+    padding: 0.9rem 2.3rem;
     font-size: 1.2rem;
 }
 
@@ -466,19 +454,18 @@ a:hover {
 }
 
 .btn-lg {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
 }
-
 
 /*--------------------------------------------------------------
 # Nav Bar
 --------------------------------------------------------------*/
 
 .navbar-b {
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     background-color: transparent;
     padding-top: 1.563rem;
     padding-bottom: 1.563rem;
@@ -511,7 +498,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link:before,
 .navbar-b.navbar-reduce .nav-link:before {
-    content: '';
+    content: "";
     position: absolute;
     margin-left: 0px;
     width: 0%;
@@ -530,7 +517,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link:hover,
 .navbar-b.navbar-reduce .nav-link:hover {
-    color: #1B1B1B;
+    color: #1b1b1b;
 }
 
 .navbar-b.navbar-trans .nav-link:hover:before,
@@ -538,12 +525,12 @@ a:hover {
     width: 35px;
 }
 
-.navbar-b.navbar-trans .show>.nav-link:before,
-.navbar-b.navbar-trans .active>.nav-link:before,
+.navbar-b.navbar-trans .show > .nav-link:before,
+.navbar-b.navbar-trans .active > .nav-link:before,
 .navbar-b.navbar-trans .nav-link.show:before,
 .navbar-b.navbar-trans .nav-link.active:before,
-.navbar-b.navbar-reduce .show>.nav-link:before,
-.navbar-b.navbar-reduce .active>.nav-link:before,
+.navbar-b.navbar-reduce .show > .nav-link:before,
+.navbar-b.navbar-reduce .active > .nav-link:before,
 .navbar-b.navbar-reduce .nav-link.show:before,
 .navbar-b.navbar-reduce .nav-link.active:before {
     width: 35px;
@@ -557,15 +544,15 @@ a:hover {
     color: #ffffff;
 }
 
-.navbar-b.navbar-trans .show>.nav-link,
-.navbar-b.navbar-trans .active>.nav-link,
+.navbar-b.navbar-trans .show > .nav-link,
+.navbar-b.navbar-trans .active > .nav-link,
 .navbar-b.navbar-trans .nav-link.show,
 .navbar-b.navbar-trans .nav-link.active {
     color: #ffffff;
 }
 
 .navbar-b.navbar-reduce {
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     background-color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -583,8 +570,8 @@ a:hover {
     color: rgb(45, 65, 85);
 }
 
-.navbar-b.navbar-reduce .show>.nav-link,
-.navbar-b.navbar-reduce .active>.nav-link,
+.navbar-b.navbar-reduce .show > .nav-link,
+.navbar-b.navbar-reduce .active > .nav-link,
 .navbar-b.navbar-reduce .nav-link.show,
 .navbar-b.navbar-reduce .nav-link.active {
     color: rgb(45, 65, 85);
@@ -595,7 +582,7 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .navbar-toggler span {
-    background-color: #1B1B1B;
+    background-color: #1b1b1b;
 }
 
 .navbar-b .navbar-brand {
@@ -617,7 +604,7 @@ a:hover {
 }
 
 .navbar-b .dropdown-menu .dropdown-item {
-    padding: .7rem 1.7rem;
+    padding: 0.7rem 1.7rem;
     transition: all 500ms ease;
 }
 
@@ -630,7 +617,6 @@ a:hover {
 .navbar-b .dropdown-menu .dropdown-item.active {
     background-color: rgb(45, 65, 85);
 }
-
 
 /*--/ Hamburger Navbar /--*/
 
@@ -657,7 +643,7 @@ a:hover {
 
 .navbar-toggler span:nth-child(1),
 .navbar-toggler span:nth-child(3) {
-    transition: transform .35s ease-in-out;
+    transition: transform 0.35s ease-in-out;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
@@ -682,10 +668,45 @@ a:hover {
     opacity: 0.9;
 }
 
-
 /*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
+
+@media only screen and (min-width: 640px) {
+    #home {
+        background-image: url("/images/afc9129b-d297-4991-fc4b-1bc2e5bef200/sm");
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #home {
+        background-image: url("/images/afc9129b-d297-4991-fc4b-1bc2e5bef200/md");
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #home {
+        background-image: url("/images/afc9129b-d297-4991-fc4b-1bc2e5bef200/lg");
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    #home {
+        background-image: url("/images/afc9129b-d297-4991-fc4b-1bc2e5bef200/xl");
+    }
+}
+
+@media only screen and (min-width: 1536px) {
+    #home {
+        background-image: url("/images/afc9129b-d297-4991-fc4b-1bc2e5bef200/2xl");
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    #home {
+        background-image: url("/images/afc9129b-d297-4991-fc4b-1bc2e5bef200/max");
+    }
+}
 
 .intro {
     height: 100vh;
@@ -706,7 +727,7 @@ a:hover {
     padding: 0;
     height: 100%;
     width: 100%;
-    opacity: .9;
+    opacity: 0.9;
 }
 
 .intro .intro-title {
@@ -771,7 +792,6 @@ a:hover {
     color: #ffffff;
 }
 
-
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -802,16 +822,15 @@ a:hover {
 
 .skill-mf .progress {
     background-color: rgb(228, 227, 255);
-    margin: .5rem 0 1.2rem 0;
+    margin: 0.5rem 0 1.2rem 0;
     border-radius: 0;
-    height: .7rem;
+    height: 0.7rem;
 }
 
 .skill-mf .progress .progress-bar {
-    height: .7rem;
+    height: 0.7rem;
     background-color: rgb(45, 65, 85);
 }
-
 
 /*--------------------------------------------------------------
 # Services
@@ -845,13 +864,12 @@ a:hover {
     font-size: 1.4rem;
     text-transform: uppercase;
     text-align: center;
-    padding: .4rem 0;
+    padding: 0.4rem 0;
 }
 
 .service-box .s-description {
     color: #4e4e4e;
 }
-
 
 /*--------------------------------------------------------------
 # Counter
@@ -884,7 +902,6 @@ a:hover {
     margin-bottom: 0;
 }
 
-
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -915,7 +932,7 @@ a:hover {
 
 .work-content .w-more {
     color: #4e4e4e;
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 .work-content .w-more .w-ctegory {
@@ -933,13 +950,12 @@ a:hover {
 }
 
 .work-content .w-like .num-like {
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 .w-title {
     font-size: 1.2rem;
 }
-
 
 /*--------------------------------------------------------------
 # Portfolio Details
@@ -1001,7 +1017,7 @@ a:hover {
     font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
     margin-top: 10px;
 }
 
@@ -1029,7 +1045,6 @@ a:hover {
         margin-top: 30px;
     }
 }
-
 
 /*--------------------------------------------------------------
 # Testimonials
@@ -1090,7 +1105,6 @@ a:hover {
         padding: 0 13rem;
     }
 }
-
 
 /*--------------------------------------------------------------
 # Contact
@@ -1208,7 +1222,6 @@ a:hover {
     }
 }
 
-
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
@@ -1246,14 +1259,14 @@ a:hover {
     color: #ffffff;
     display: inline-block;
     text-transform: uppercase;
-    font-size: .7rem;
-    letter-spacing: .1px;
+    font-size: 0.7rem;
+    letter-spacing: 0.1px;
     margin-bottom: 0;
 }
 
 .card-blog .card-title {
     font-size: 1.3rem;
-    margin-top: .6rem;
+    margin-top: 0.6rem;
 }
 
 .card-blog .card-description {
@@ -1269,7 +1282,6 @@ a:hover {
     display: inline-block;
     float: right;
 }
-
 
 /*--------------------------------------------------------------
 # Blog Single
@@ -1331,7 +1343,6 @@ a:hover {
     font-style: italic;
 }
 
-
 /*------/ Comments /------*/
 
 .box-comments .list-comments li {
@@ -1377,7 +1388,6 @@ a:hover {
     margin-left: 40px;
 }
 
-
 /*------/ Sidebar /------*/
 
 .widget-sidebar .sidebar-title {
@@ -1421,15 +1431,14 @@ a:hover {
 .widget-tags ul li {
     display: inline-block;
     background-color: rgb(45, 65, 85);
-    padding: .2rem .6rem;
-    margin-bottom: .5rem;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
     border-radius: 15px;
 }
 
 .widget-tags ul li a {
     color: #ffffff;
 }
-
 
 /*--------------------------------------------------------------
 # Footer
@@ -1443,7 +1452,7 @@ footer {
 }
 
 footer .copyright {
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
 }
 
 footer .credits {
@@ -1518,28 +1527,28 @@ footer .credits a {
 .article-content #article-content table {
     display: block;
     width: 100%;
-    overflow:auto
+    overflow: auto;
 }
 
 .article-content #article-content table th {
-    font-weight:600
+    font-weight: 600;
 }
 
-.article-content #article-content table th, .article-content #article-content table td {
+.article-content #article-content table th,
+.article-content #article-content table td {
     padding: 6px 13px;
     border: 1px solid #dfe2e5;
 }
 
 .article-content #article-content table tr {
     background-color: #fff;
-    border-top:1px solid #c6cbd1
+    border-top: 1px solid #c6cbd1;
 }
 
 .article-content #article-content table tr:nth-child(2n) {
-    background-color:#f6f8fa
+    background-color: #f6f8fa;
 }
 
 .article-content #article-content table img {
-    background-color:transparent
+    background-color: transparent;
 }
-

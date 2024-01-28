@@ -37,7 +37,7 @@ pub fn articles() -> HtmlResult {
         html! {
             <div class="col-md-12">
                 <div class="work-box">
-                    <a href={format!("https://blog.mingchang.tw/blog/?filename={url}&commit={commit}")}>
+                    <a href={format!("https://blog.mingchang.tw/blog?filename={url}&commit={commit}")}>
                         <div class="work-content">
                             <div class="row">
                                 <div class="col-sm-12">
