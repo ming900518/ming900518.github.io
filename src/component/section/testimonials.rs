@@ -3,7 +3,7 @@ use yew::prelude::*;
 #[function_component(Testimonials)]
 pub fn testimonials() -> Html {
     html! {
-        <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/bg.webp)">
+        <div class="testimonials paralax-mf bg-image">
             <div class="overlay-mf"></div>
             <div class="container">
                 <div class="row">

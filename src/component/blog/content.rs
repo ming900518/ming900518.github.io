@@ -84,7 +84,7 @@ pub fn content(props: &Props) -> HtmlResult {
 
     Ok(html! {
         <>
-        <main id="main" class="bg-image" style="background-image: url(/assets/img/bg.webp);">
+        <main id="main" class="bg-image">
         <div class="intro intro-single route">
             <div class="overlay-mf"></div>
             <div class="intro-content display-table">
